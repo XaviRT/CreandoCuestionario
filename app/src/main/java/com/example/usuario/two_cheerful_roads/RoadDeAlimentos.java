@@ -96,8 +96,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
         try {
 
-            Cursor c = preguntasNutricionDB.rawQuery("SELECT * FROM pregNutricion", null);
-
+            Cursor c = preguntasNutricionDB.rawQuery("SELECT DISTINCT pregunta FROM pregNutricion", null);
             int preguntasIndex = c.getColumnIndex("pregunta");
             //int choice1Index = c.getColumnIndex("choice1");
 
@@ -105,6 +104,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
                 preguntasLs.clear();
 
                 //choice1Ls.clear();
+
 
                 do {
                     preguntasLs.add(c.getString(preguntasIndex));
@@ -199,23 +199,21 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
                     aparicionesEnFor++;
                     Log.i("APARICIONES EN FOR -> ", String.valueOf(aparicionesEnFor));
+
+                    String sql = "INSERT INTO pregNutricion (pregunta, choice1, choice2, choice3, choice4, respuesta) VALUES (? , ? , ? , ? , ? , ?)";
+
+                    SQLiteStatement statement = preguntasNutricionDB.compileStatement(sql);
+
+                    statement.bindString(1, elemt);
+                    statement.bindString(2, elemt2);
+                    statement.bindString(3, elemt3);
+                    statement.bindString(4, elemt4);
+                    statement.bindString(5, elemt5);
+                    statement.bindString(6, elemt6);
+                    //ESTO ES UN TEST
+                    //hola que tal
+                    statement.execute();
                 }
-
-                String sql = "INSERT INTO pregNutricion (pregunta, choice1, choice2, choice3, choice4, respuesta) VALUES (? , ? , ? , ? , ? , ?)";
-
-                SQLiteStatement statement = preguntasNutricionDB.compileStatement(sql);
-
-                statement.bindString(1, elemt);
-                statement.bindString(2, elemt2);
-                statement.bindString(3, elemt3);
-                statement.bindString(4, elemt4);
-                statement.bindString(5, elemt5);
-                statement.bindString(6, elemt6);
-                //ESTO ES UN TEST
-                //hola que tal
-                statement.execute();
-
-
             } catch (JSONException e) {
                 e.printStackTrace();
             } catch (MalformedURLException e) {
