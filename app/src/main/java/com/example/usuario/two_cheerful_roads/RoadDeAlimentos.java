@@ -212,6 +212,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
                 statement.bindString(5, elemt5);
                 statement.bindString(6, elemt6);
                 //ESTO ES UN TEST
+                //hola que tal
                 statement.execute();
 
 
