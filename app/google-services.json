@@ -1,0 +1,55 @@
+
+  "project_info": {
+    "project_number": "738203029220",
+    "firebase_url": "https://two-cheerful-roads.firebaseio.com",
+    "project_id": "two-cheerful-roads",
+    "storage_bucket": "two-cheerful-roads.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738203029220:android:b537517b15e12011",
+        "android_client_info": {
+          "package_name": "com.example.usuario.two_cheerful_roads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738203029220-epgupjidm3chu99o7ah91fjifktmnteb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.usuario.two_cheerful_roads",
+            "certificate_hash": "d176c6751f26545f11c6e983ba0d7fc0038100ca"
+          }
+        },
+        {
+          "client_id": "738203029220-p0ufut3hvq2egjh9nam728ih0h6dtdq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvi02hmVvS7TTWhJG9uliMwt9Vt0j9y8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738203029220-p0ufut3hvq2egjh9nam728ih0h6dtdq7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
