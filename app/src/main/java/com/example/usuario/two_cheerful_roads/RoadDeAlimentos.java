@@ -65,14 +65,21 @@ public class RoadDeAlimentos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_de_alimentos);
 
-        /*posicionQuizzes = findViewById(R.id.textoV6);
+         /*posicionQuizzes = findViewById(R.id.textoV6);
 
-        preg = findViewById(R.id.preguntiitaa);*/
+         preg = findViewById(R.id.preguntiitaa);*/
 
-        /*chc1 = findViewById(R.id.Optn1);
-        chc2 = findViewById(R.id.Optn2);
-        chc3 = findViewById(R.id.Optn3);
-        chc4 = findViewById(R.id.Optn4);*/
+         /*chc1 = findViewById(R.id.Optn1);
+         chc2 = findViewById(R.id.Optn2);
+         chc3 = findViewById(R.id.Optn3);
+         chc4 = findViewById(R.id.Optn4);*/
+
+        cuestionario.pregunta = new ArrayList<String>();
+        cuestionario.posib1 = new ArrayList<String>();
+        cuestionario.posib2 = new ArrayList<String>();
+        cuestionario.posib3 = new ArrayList<String>();
+        cuestionario.posib4 = new ArrayList<String>();
+        cuestionario.answer = new ArrayList<String>();
 
         listView = findViewById(R.id.listaContenidos);
 
@@ -91,10 +98,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
         DownloadTask task = new DownloadTask();
         task.execute("https://api.myjson.com/bins/vteyy");
 
-        Log.i("EXISTE LA VARIABLE?? ", preguntasLs.get(1));
-
     }
-
     public void obtenElementosDB() {
         try {
             Cursor c = preguntasNutricionDB.rawQuery("SELECT DISTINCT pregunta FROM pregNutricion", null);
@@ -106,12 +110,12 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
 
             if (c.moveToFirst()) {
-                //cuestionario.pregunta.clear();
+                cuestionario.pregunta.clear();
                 preguntasLs.clear();
 
 
                 do {
-                      preguntasLs.add(c.getString(preguntasIndex));
+                    preguntasLs.add(c.getString(preguntasIndex));
                     //choice1Ls.add(c.getString(choice1Index));
                 } while (c.moveToNext());
 
@@ -126,19 +130,24 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
     public NutricionQuiz_1 conversionDeStrings(){
 
-        String convers1 = preguntasLs.get(1);
-        String convers2 = preguntasLs.get(2);
-        String convers3 = preguntasLs.get(0);
-        //ABAJO APARECERÁN MÁS STRINGS QUE VAYA AÑADIENDO.
+                 String convers1 = preguntasLs.get(1);
+                 String convers2 = preguntasLs.get(2);
+                 String convers3 = preguntasLs.get(0);
+                 //ABAJO APARECERÁN MÁS STRINGS QUE VAYA AÑADIENDO.
 
-        cuestionario.pregunta.add(convers1);
-        cuestionario.pregunta.add(convers2);
-        cuestionario.pregunta.add(convers3);
+                 cuestionario.pregunta.add(convers1);
+                 cuestionario.pregunta.add(convers2);
+                 cuestionario.pregunta.add(convers3);
 
-        Log.i("EXISTE EL VAaaLOOR?? ", cuestionario.pregunta.get(1));
+                 Log.i("EXISTE LA POSICIÓN 0? ", cuestionario.pregunta.get(0));
+                 Log.i("EXISTE LA POSICIÓN 1? ", cuestionario.pregunta.get(1));
+                 Log.i("EXISTE LA POSICIÓN 2? ", cuestionario.pregunta.get(2));
+
+                 scoreTextView.setText(cuestionario.pregunta.get(0));
+
+
         return cuestionario;
-    }
-
+            }
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
 
@@ -172,7 +181,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
                     data = reader.read();
 
-                    }
+                }
 
                 Log.i("URLContenido", resultado);
 
@@ -246,9 +255,3 @@ public class RoadDeAlimentos extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
-
