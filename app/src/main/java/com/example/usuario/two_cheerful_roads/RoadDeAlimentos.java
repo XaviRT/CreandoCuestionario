@@ -90,6 +90,20 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
         DownloadTask task = new DownloadTask();
         task.execute("https://api.myjson.com/bins/vteyy");
+
+        Log.i("EXISTE LA VARIABLE?? ", preguntasLs.get(1));
+
+        String convers1 = preguntasLs.get(1);
+        String convers2 = preguntasLs.get(2);
+        String convers3 = preguntasLs.get(0);
+        //ABAJO APARECERÁN MÁS STRINGS QUE VAYA AÑADIENDO.
+
+        cuestionario.pregunta.add(convers1);
+        cuestionario.pregunta.add(convers2);
+        cuestionario.pregunta.add(convers3);
+
+        Log.i("EXISTE EL VAaaLOOR?? ", cuestionario.pregunta.get(1));
+
     }
 
     public void obtenElementosDB() {
@@ -103,38 +117,17 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
 
             if (c.moveToFirst()) {
-                cuestionario.pregunta.clear();
+                //cuestionario.pregunta.clear();
                 preguntasLs.clear();
-
-                //choice1Ls.clear();
 
 
                 do {
-                      cuestionario.pregunta.add(c.getString(preguntasIndex));
-                      cuestionario.posib1.add(c.getString(choice1Index));
-                      cuestionario.posib2.add(c.getString(choice2Index));
-                      cuestionario.posib3.add(c.getString(choice3Index));
-                      cuestionario.posib4.add(c.getString(choice1Index));
-
-                      //preguntasLs.add(c.getString(preguntasIndex));
+                      preguntasLs.add(c.getString(preguntasIndex));
                     //choice1Ls.add(c.getString(choice1Index));
                 } while (c.moveToNext());
-                //arrayAdapter.notifyDataSetChanged();
 
-
+                arrayAdapter.notifyDataSetChanged();
             }
-
-            Log.i("EXISTE LA VARIABLE?? ", cuestionario.pregunta.get(1));
-
-
-            scoreTextView.setText(cuestionario.pregunta.get(1));
-
-           /* c.moveToFirst();
-                Log.i("LA OPCIÓN 1 ES -> ", c.getString(choice1Index));
-
-                    c.moveToNext();
-                    Log.i("LA OPCIÓN 1 PRÓXM -> ", c.getString(choice1Index));*/
-
 
         } catch (Exception e) {
             e.printStackTrace();
