@@ -55,7 +55,7 @@ public class RoadDeAlimentos extends AppCompatActivity {
     ListView listView;
 
     //VARIABLE "TYPEDEF" QUE HE CREADO PARA EL CUESTIONARIO.
-    NutricionQuiz_1 cuestionario;
+    NutricionQuiz_1 cuestionario = new NutricionQuiz_1();
 
     SQLiteDatabase preguntasNutricionDB;
 
@@ -93,26 +93,41 @@ public class RoadDeAlimentos extends AppCompatActivity {
     }
 
     public void obtenElementosDB() {
-
         try {
-
             Cursor c = preguntasNutricionDB.rawQuery("SELECT DISTINCT pregunta FROM pregNutricion", null);
             int preguntasIndex = c.getColumnIndex("pregunta");
-            //int choice1Index = c.getColumnIndex("choice1");
+            int choice1Index = c.getColumnIndex("choice1");
+            int choice2Index = c.getColumnIndex("choice2");
+            int choice3Index = c.getColumnIndex("choice3");
+            int choice4Index = c.getColumnIndex("choice4");
+
 
             if (c.moveToFirst()) {
+                cuestionario.pregunta.clear();
                 preguntasLs.clear();
 
                 //choice1Ls.clear();
 
 
                 do {
-                    preguntasLs.add(c.getString(preguntasIndex));
+                      cuestionario.pregunta.add(c.getString(preguntasIndex));
+                      cuestionario.posib1.add(c.getString(choice1Index));
+                      cuestionario.posib2.add(c.getString(choice2Index));
+                      cuestionario.posib3.add(c.getString(choice3Index));
+                      cuestionario.posib4.add(c.getString(choice1Index));
+
+                      //preguntasLs.add(c.getString(preguntasIndex));
                     //choice1Ls.add(c.getString(choice1Index));
                 } while (c.moveToNext());
+                //arrayAdapter.notifyDataSetChanged();
 
-                arrayAdapter.notifyDataSetChanged();
+
             }
+
+            Log.i("EXISTE LA VARIABLE?? ", cuestionario.pregunta.get(1));
+
+
+            scoreTextView.setText(cuestionario.pregunta.get(1));
 
            /* c.moveToFirst();
                 Log.i("LA OPCIÓN 1 ES -> ", c.getString(choice1Index));

@@ -1,69 +1,74 @@
 package com.example.usuario.two_cheerful_roads;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NutricionQuiz_1 {
-    private String pregunta;
-    private String posib1;
-    private String posib2;
-    private String posib3;
-    private String posib4;
-    private String answer;
+    public ArrayList<String> pregunta;
+    public ArrayList<String> posib1;
+    public ArrayList<String> posib2;
+    public ArrayList<String> posib3;
+    public ArrayList<String> posib4;
+    public ArrayList<String> answer;
 
-    public NutricionQuiz_1() {}
+    public NutricionQuiz_1() {
+    }
 
-    public NutricionQuiz_1(String pregunta, String posib1, String posib2, String posib3, String posib4, String answer){
-            this.pregunta = pregunta;
-            this.posib1 = posib1;
-            this.posib2 = posib2;
-            this.posib3 = posib3;
-            this.posib4 = posib4;
-            this.answer = answer;
-        }
+    public NutricionQuiz_1(ArrayList<String> pregunta, ArrayList<String> posib1, ArrayList<String> posib2, ArrayList<String> posib3, ArrayList<String> posib4, ArrayList<String> answer) {
+        this.pregunta = pregunta;
+        this.posib1 = posib1;
+        this.posib2 = posib2;
+        this.posib3 = posib3;
+        this.posib4 = posib4;
+        this.answer = answer;
+    }
 
-    public String getPregunta() {
+    public List getPregunta() {
         return pregunta;
     }
 
-    public void setPregunta(String pregunta) {
+    public void setPregunta(ArrayList<String> pregunta) {
         this.pregunta = pregunta;
     }
 
-    public String getPosib1() {
+    public List getPosib1() {
         return posib1;
     }
 
-    public void setPosib1(String posib1) {
+    public void setPosib1(ArrayList<String> posib1) {
         this.posib1 = posib1;
     }
 
-    public String getPosib2() {
+    public List getPosib2() {
         return posib2;
     }
 
-    public void setPosib2(String posib2) {
+    public void setPosib2(ArrayList<String> posib2) {
         this.posib2 = posib2;
     }
 
-    public String getPosib3() {
+    public List getPosib3() {
         return posib3;
     }
 
-    public void setPosib3(String posib3) {
+    public void setPosib3(ArrayList<String> posib3) {
         this.posib3 = posib3;
     }
 
-    public String getPosib4() {
+    public List getPosib4() {
         return posib4;
     }
 
-    public void setPosib4(String posib4) {
+    public void setPosib4(ArrayList<String> posib4) {
         this.posib4 = posib4;
     }
 
-    public String getAnswer() {
+    public List getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(ArrayList<String> answer) {
         this.answer = answer;
     }
 }
+
