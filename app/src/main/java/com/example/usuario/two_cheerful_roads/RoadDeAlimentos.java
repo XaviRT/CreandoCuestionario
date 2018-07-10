@@ -93,17 +93,6 @@ public class RoadDeAlimentos extends AppCompatActivity {
 
         Log.i("EXISTE LA VARIABLE?? ", preguntasLs.get(1));
 
-        String convers1 = preguntasLs.get(1);
-        String convers2 = preguntasLs.get(2);
-        String convers3 = preguntasLs.get(0);
-        //ABAJO APARECERÁN MÁS STRINGS QUE VAYA AÑADIENDO.
-
-        cuestionario.pregunta.add(convers1);
-        cuestionario.pregunta.add(convers2);
-        cuestionario.pregunta.add(convers3);
-
-        Log.i("EXISTE EL VAaaLOOR?? ", cuestionario.pregunta.get(1));
-
     }
 
     public void obtenElementosDB() {
@@ -127,11 +116,27 @@ public class RoadDeAlimentos extends AppCompatActivity {
                 } while (c.moveToNext());
 
                 arrayAdapter.notifyDataSetChanged();
+                cuestionario = conversionDeStrings();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public NutricionQuiz_1 conversionDeStrings(){
+
+        String convers1 = preguntasLs.get(1);
+        String convers2 = preguntasLs.get(2);
+        String convers3 = preguntasLs.get(0);
+        //ABAJO APARECERÁN MÁS STRINGS QUE VAYA AÑADIENDO.
+
+        cuestionario.pregunta.add(convers1);
+        cuestionario.pregunta.add(convers2);
+        cuestionario.pregunta.add(convers3);
+
+        Log.i("EXISTE EL VAaaLOOR?? ", cuestionario.pregunta.get(1));
+        return cuestionario;
     }
 
 
