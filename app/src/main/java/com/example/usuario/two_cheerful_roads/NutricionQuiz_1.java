@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NutricionQuiz_1 {
     public ArrayList<String> pregunta;
-    public ArrayList<String> posib1;
+    public ArrayList<String> choice1;
     public ArrayList<String> posib2;
     public ArrayList<String> posib3;
     public ArrayList<String> posib4;
@@ -14,9 +14,9 @@ public class NutricionQuiz_1 {
     public NutricionQuiz_1() {
     }
 
-    public NutricionQuiz_1(ArrayList<String> pregunta, ArrayList<String> posib1, ArrayList<String> posib2, ArrayList<String> posib3, ArrayList<String> posib4, ArrayList<String> answer) {
+    public NutricionQuiz_1(ArrayList<String> pregunta, ArrayList<String> choice1, ArrayList<String> posib2, ArrayList<String> posib3, ArrayList<String> posib4, ArrayList<String> answer) {
         this.pregunta = pregunta;
-        this.posib1 = posib1;
+        this.choice1 = choice1;
         this.posib2 = posib2;
         this.posib3 = posib3;
         this.posib4 = posib4;
@@ -31,12 +31,12 @@ public class NutricionQuiz_1 {
         this.pregunta = pregunta;
     }
 
-    public List getPosib1() {
-        return posib1;
+    public List getChoice1() {
+        return choice1;
     }
 
-    public void setPosib1(ArrayList<String> posib1) {
-        this.posib1 = posib1;
+    public void setChoice1(ArrayList<String> choice1) {
+        this.choice1 = choice1;
     }
 
     public List getPosib2() {
